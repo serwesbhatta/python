@@ -5,29 +5,30 @@ def inputElements(array):
     element = int(input(f"Enter element {i+1}: "))
     array.append(element)
 
-def heapify(array, i):
+def heapify(array, size, i):
   largest = i
-  left = i * 2 + 1
-  right = i * 2 + 2
+  left = 2 * i + 1
+  right = 2 * i + 2
 
-  if left < len(array) and array[left] > array[largest]:
+  if left < size and array[left] > array[largest]:
     largest = left
 
-  if right < len(array) and array[right] > array[largest]:
+  if right < size and array[right] > array[largest]:
     largest = right
 
   if largest != i:
     array[i], array[largest] = array[largest], array[i]
 
-    heapify(array, largest)
+    heapify(array, size, largest)
 
 def heapSort(array):
-  for i in range(len(array) // 2 - 1, -1, -1):
-    heapify(array, i)
+  size = len(array)
+  for i in range(size // 2 - 1, -1, -1):
+    heapify(array, size, i)
   
-  for i in range(len(array) - 1, 0, -1):
+  for i in range(size - 1, 0, -1):
     array[0], array[i] = array[i], array[0]
-    heapify(array, i)
+    heapify(array, i, 0)
 
 def printElements(array):
   for element in array:
