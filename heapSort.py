@@ -4,3 +4,8 @@ def inputElements(array):
   for i in range(n):
     element = int(input(f"Enter element {i+1}: "))
     array.append(element)
+
+def printElements(array):
+  for element in array:
+    print(element)
+
