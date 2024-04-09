@@ -9,3 +9,10 @@ def printElements(array):
   for element in array:
     print(element)
 
+def main():
+  array = []
+
+  inputElements(array)
+  printElements(array)
+
+main()
